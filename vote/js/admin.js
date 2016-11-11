@@ -83,6 +83,8 @@ layui.use(['form', 'layedit', 'laydate', 'upload', 'layer'], function(){
 				layer.msg('删除成功');
 			}, function(){});
 		});
+	}else{
+		layer.close(loading);	
 	}
   });
 
