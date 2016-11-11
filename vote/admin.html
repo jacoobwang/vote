@@ -2,26 +2,29 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>投票神器后台</title>
+  <title>Layui</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="./layui/css/layui.css"  media="all">
-  <link rel="stylesheet" href="./css/admin.css"  media="all">
+  <link rel="stylesheet" href="./css/admin.css" >
 </head>
-<body>
-<div class="header"><h1>投票数据处理页面</h1><a id="create" href="#">新建</a></div>
-<div class="slide"></div>
-<div class="content">
+<body> 
+<div class="header">
+  <h1>投票数据处理页面</h1>
+</div>
+<div class="slide">
+  <p class="on"><span>Uber 功效改变世界</span><i alt="删除项目" class="btn_delete"></i></p>
+  <p><span>Uber 功效改变世界</span><i alt="删除项目" class="btn_delete"></i></p>
+  <p><span>Uber 功效改变世界</span><i alt="删除项目" class="btn_delete"></i></p>
+  <p><span>Uber 功效改变世界</span><i alt="删除项目" class="btn_delete"></i></p>
+  <p><span>Uber 功效改变世界</span><i alt="删除项目" class="btn_delete"></i></p>
+</div>  
+<div class="content">      
 <form class="layui-form layui-form-pane">
   <div class="layui-form-item">
     <label class="layui-form-label">标题</label>
     <div class="layui-input-block">
-	  <input type="hidden" name="way" value=1 />
-	  <input type="hidden" name="id" value="" />
       <input type="text" name="title" lay-verify="title"  autocomplete="off" placeholder="请输入标题" class="layui-input">
     </div>
   </div>
@@ -29,10 +32,10 @@
     <label class="layui-form-label">作者</label>
 	<div class="layui-input-inline">
 	  <select name="author">
-		<option value="1">Nancy</option>
-		<option value="2">Nicoe</option>
-		<option value="3">Jacoob</option>
-		<option value="4">YoYo</option>
+		<option value="1">张丽媛</option>
+		<option value="2">尹丁丁</option>
+		<option value="3">王勇</option>
+		<option value="4">谢摇摇</option>
 	  </select>		  
     </div>
   </div>
@@ -50,13 +53,13 @@
       </div>
     </div>
   </div>
-  <!--<div class="layui-form-item">
+  <div class="layui-form-item">
 	<label class="layui-form-label">缩略图</label>
 	<div class="site-demo-upbar">
 		<input type="file" name="file" lay-type="file" class="layui-upload-file">
 	</div>
 	<input type="hidden" name="img" class="layui-input">
-  </div>-->
+  </div>
   <div class="layui-form-item">
 	 <label class="layui-form-label">期数</label>	
 	 <div class="layui-input-inline">
@@ -86,7 +89,8 @@
     <button class="layui-btn" lay-submit="" lay-filter="demo1">提交</button>
   </div>
 </form>
-</div>          
+</div>
+          
 <script src="./layui/layui.js" charset="utf-8"></script>
 <script src="js/util.js"></script>
 <script src="js/jquery-1.8.1.min.js"></script>

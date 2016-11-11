@@ -11,34 +11,23 @@ sendData('vote','num=1',function(ret){
 		var author = {1:'张丽媛',2:'尹丁丁',3:'王勇',4:'谢摇摇'};	
 		for(var i in ret){
 			if(ret[i]['master']=="on"){
-				li += '<li class="box"><div class="vo '+ret[i]['color']+'">'+ret[i]['title']+'</div><div class="word"><div class="btn on">打分</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';
+				li += '<li class="box"><div class="vo yellow"><img src="'+ret[i]['img']+'"></div><div class="word"><div class="btn on">打分</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';
 			}else{
-				if(ret[i]['title'].length==0){
-					li += '<li class="box"><div class="vo '+ret[i]['color']+'"></div><div class="word"><div class="btn disable">打分</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';	
-				}
-				else{	
-					li += '<li class="box"><div class="vo '+ret[i]['color']+'">'+ret[i]['title']+'</div><div class="word"><div class="btn '+btn_class+'">'+ret[i]['mark']+'</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';
-				}	
+			if(ret[i]['title'].length==0){
+				li += '<li class="box"><div class="vo '+ret[i]['color']+'"></div><div class="word"><div class="btn disable">打分</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';	
+			}
+			else{	
+				li += '<li class="box"><div class="vo yellow"><img src="'+ret[i]['img']+'"></div><div class="word"><div class="btn '+btn_class+'">'+ret[i]['mark']+'</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';
+			}
 			}
 		}
 		$("ul.content").html(li);
-		var isVote= getCookie("voted") || false;
-		if(isVote){
-			$(".on").html("投票中...");
-			setCookie("voted",true,60);
-		}
 		reloadData();
-		init();
 	}	
 });
 
-//reloadData();
-
-$(function(){
-	FastClick.attach(document.body);
-});
-
-function init(){
+$(function(){	
+	showToast(DomList["succ"]);
 	//打分按钮点击
 	$(".btn").on("click",function(){
 		var isDis = $(this).hasClass("disable");
@@ -59,23 +48,23 @@ function init(){
 		var obj = {
 			"num" : $(".mark input").val()
 		}
-		if(obj.num>0 && obj.num < 10){
-			sendData("mark","num="+obj.num,doVote);
-		}else{
-			$("#error").html("输入分值不合法，请重新输入").show();
-			setTimeout(function(){$("#error").hide();},3000);
-		}
+		sendData("mark","num="+obj.num,doVote);
 	});
 
 	//点击弹窗以外区域关掉弹窗	
-	$(document).on("click",function(){
+	$("body").on("click",function(){
 		hideToast();		
 	});
-}
+});
 
 function doVote(){
 	hideToast();
 	showToast(DomList["succ"]);
+	/**$(".btn_get_rs").addClass("active");
+	$(".active").on("click",function(){
+		showToast(DomList["res"]);
+		return false;
+	});**/	
 	$(".on").html("投票中...");
 	setCookie("voted",true,60);
 	window.r = setInterval('reloadData()',3000);
@@ -84,11 +73,10 @@ function doVote(){
 function reloadData(){
 	sendData("markrs","",function(data){
 		if(data > 0){
-			var rs = Math.ceil(data*10)/10;
-			$(".on").html(rs);
+			$(".on").html(data);
 			setCookie("voted",true,60);
 			if(window.r != undefined) clearInterval(r);
-		}
+		}	
 	})
 }
 
@@ -116,7 +104,7 @@ function showToast(DomID){
  */
 function sendData(f, d, cb){
 	$.ajax({
-		url: "http://ecp.jd.com/vote/"+f,
+		url: "http://localhost:3000/"+f,
 		type: "GET",
 		data : d,
 		success:function(data){
