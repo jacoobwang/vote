@@ -116,7 +116,7 @@ function showToast(DomID){
  */
 function sendData(f, d, cb){
 	$.ajax({
-		url: "http://ecp.jd.com/vote/"+f,
+		url: "http://"+location.host+"/vote/"+f,
 		type: "GET",
 		data : d,
 		success:function(data){
