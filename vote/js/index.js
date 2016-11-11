@@ -12,20 +12,22 @@ sendData('vote','num=1',function(ret){
 		for(var i in ret){
 			if(ret[i]['master']=="on"){
 				li += '<li class="box"><div class="vo yellow"><img src="'+ret[i]['img']+'"></div><div class="word"><div class="btn on">打分</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';
-			}
-			else if(ret[i]['title'].length==0){
+			}else{
+			if(ret[i]['title'].length==0){
 				li += '<li class="box"><div class="vo '+ret[i]['color']+'"></div><div class="word"><div class="btn disable">打分</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';	
 			}
 			else{	
 				li += '<li class="box"><div class="vo yellow"><img src="'+ret[i]['img']+'"></div><div class="word"><div class="btn '+btn_class+'">'+ret[i]['mark']+'</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';
-			}	
+			}
+			}
 		}
 		$("ul.content").html(li);
 		reloadData();
 	}	
 });
 
-$(function(){
+$(function(){	
+	showToast(DomList["succ"]);
 	//打分按钮点击
 	$(".btn").on("click",function(){
 		var isDis = $(this).hasClass("disable");
@@ -70,9 +72,11 @@ function doVote(){
 
 function reloadData(){
 	sendData("markrs","",function(data){
-		$(".on").html(data);
-		setCookie("voted",true,60);
-		if(window.r != undefined) clearInterval(r);
+		if(data > 0){
+			$(".on").html(data);
+			setCookie("voted",true,60);
+			if(window.r != undefined) clearInterval(r);
+		}	
 	})
 }
 
