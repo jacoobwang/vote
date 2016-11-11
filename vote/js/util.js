@@ -5,7 +5,7 @@
  */
 function sendData(f, d, cb){
 	$.ajax({
-		url: "http://localhost:3000/"+f,
+		url: "http://ecp.jd.com/vote/"+f,
 		type: "GET",
 		data : d,
 		success:function(data){

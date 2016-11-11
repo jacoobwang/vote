@@ -1,8 +1,10 @@
-.header{width: 100%;height: 50px;line-height: 50px;background-color: #ef3b42;}
+.header{position:relative;width: 100%;height: 50px;line-height: 50px;background-color: #ef3b42;}
 .slide{position:absolute;left:0;top:50px;bottom:0;width: 200px;padding-top:8px;background: #f7f7f7;}
 .content{margin-left: 220px;margin-top: 10px;}
 .slide > p{position:relative;padding: 10px 20px;color: #666;font-size: 14px;cursor: pointer;}
 .header h1{color: #fff;margin-left: 20px;font-size: 20px;font-weight: bold;}
+.header a{position:absolute;left:220px;color:#fff;font-size:14px;top:0;}
 .slide >p.on,.slide>p:hover{background: #eee;color: #cc7a6f;}
-.btn_delete{display: none;position: absolute;right: 10px;top:50%;margin-top: -8px;vertical-align: middle;width: 16px;
-	height: 16px;background-size: 100% auto;text-indent: -9999em;background-image: url('../images/delete.png')}
+.btn_delete{display: none;position: absolute;right: 10px;top:50%;margin-top: -8px;vertical-align: middle;width: 16px;height: 16px;background-size: 100% auto;text-indent: -9999em;background-image: url('../images/delete.png')}
+
+

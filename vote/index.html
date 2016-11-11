@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>投票神器</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script> 
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="format-detection" content="telephone=no" />
@@ -12,45 +13,16 @@
 <body>
 	<article class="wrap">
 		<ul class="content">
-			<!--<li class="box">
-				<div class="vo yellow"><img src="images/pic1.jpg"></div>
-				<div class="word">
-					<div class="btn on">打分</div>
-					<div class="author">张丽媛</div>
-				</div>		
-			</li>
-			<li class="box">
-				<div class="vo green"></div>
-				<div class="word">
-					<div class="btn disable">打分</div>
-					<div class="author">尹丁丁</div>
-				</div>		
-			</li>
-			<li class="box">
-				<div class="vo red"></div>
-				<div class="word">
-					<div class="btn disable">打分</div>
-					<div class="author">王勇</div>
-				</div>		
-			</li>
-			<li class="box">
-				<div class="vo pure"></div>
-				<div class="word">
-					<div class="btn disable">打分</div>
-					<div class="author">谢摇摇</div>
-				</div>		
-			</li>
-			-->
 		</ul>
 		<section class="floater hide">
 			<div class="layer"></div>
 			<div class="toast">
 				<div class="success hide">
-					<i></i>
+					<img src="images/icons_01.png" />
 					<p>投票成功</p>
 				</div>
 				<div class="result hide">
-					<i></i>
+					<img src="images/icons_02.png" />
 					<p class="small">恭喜王勇获得</p>
 					<p class="big">霸王餐</p>
 				</div>
@@ -58,6 +30,7 @@
 					<p>分数</p>
 					<input type="text" placeholder="10" />
 					<a href="">提交</a>
+					<span id="error"></span>
 				</div>		
 			</div>
 		</section>
@@ -67,6 +40,7 @@
 	</article>
 </body>
 <script src="js/jquery-1.8.1.min.js"></script>
+<script src="js/fastclick.js"></script>
 <script src="js/index.js"></script>
 </html>
 

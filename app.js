@@ -56,6 +56,10 @@ app.get('/vote',function( req, res) {
 	vote.list( req, res) ;
 });
 
+app.get('/getOne',function( req, res){
+	vote.getOne(req, res);
+});
+
 app.get('/mark',function( req, res){
 	fs.appendFile('vote.txt', req.query.num+",", function(err){
 		if(err) throw err;		
@@ -67,12 +71,16 @@ app.get('/markrs',function( req, res){
 	fs.readFile('vote.txt','utf-8',function(err, data){
 		var rs = JSON.parse('['+data.substring(0,data.length-1)+']');
 		var total=0,fin=0;
-		if(rs.length == 4){
+		if(rs.length == 3){
 			for(var i in rs){total += rs[i];}
-			fin = total/4;
+			fin = total/3;
 		}
 		res.send(''+fin);
 	});	
+});
+
+app.get('/update',function( req,res){
+	vote.update(req ,res);	
 });
 
 app.post('/upload',function( req, res, next){
@@ -84,7 +92,7 @@ app.post('/upload',function( req, res, next){
 		res.send(req.file);	
 });
 
-app.listen(3000, function(){
-    console.log('app is running at port 3000');		
+app.listen(3001, function(){
+    console.log('app is running at port 3001');		
 });
 
