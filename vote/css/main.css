@@ -43,6 +43,7 @@ html{font-size:75px;}
 .green {background:#59be8b;right:0;}
 .red {background:#e95e5e;}
 .pure {background:#635cbe;}
+.blue{background:#0000AA;}
 .btn{ width:1.4rem;height:.6rem;margin:0 auto;margin-top:.4rem;margin-bottom:.05rem;background:#f86c87;border-radius:5px;text-align:center;line-height:.6rem;color:#fff;}
 .author{text-align:center;}
 .btn_get_rs{display:block;width:3rem;height:.8rem;line-height:.8rem;color:#999;text-align:center;background:#eee;margin:0 auto;margin-top:.6rem;border-radius:2px;}

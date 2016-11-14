@@ -60,6 +60,10 @@ app.get('/getOne',function( req, res){
 	vote.getOne(req, res);
 });
 
+app.get('/delOne',function( req, res){
+	vote.delOne(req, res);
+});
+
 app.get('/mark',function( req, res){
 	fs.appendFile('vote.txt', req.query.num+",", function(err){
 		if(err) throw err;		

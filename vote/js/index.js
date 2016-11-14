@@ -1,3 +1,11 @@
+var ua = navigator.userAgent;
+var isIphone = ua.match(/(iPhone\sOS)\s([\d_]+)/),
+    isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+    isMobile = isIphone || isAndroid;
+if(!isMobile) {
+    $('body').html('<p style="width:300px;height:30px;margin:220px auto;color:red;font-size:20px;">请在手机中访问该页面</p>')
+}
+
 var DomList = 
 {
 	"succ" : ".success",
@@ -8,7 +16,7 @@ var DomList =
 sendData('vote','num=1',function(ret){	
 	if(ret.length>0){
 		var li = '',btn_class='disable';
-		var author = {1:'张丽媛',2:'尹丁丁',3:'王勇',4:'谢摇摇'};	
+		var author = {1:'Nancy',2:'Nicoe',3:'Jacoob',4:'YoYo'};	
 		for(var i in ret){
 			if(ret[i]['master']=="on"){
 				li += '<li class="box"><div class="vo '+ret[i]['color']+'">'+ret[i]['title']+'</div><div class="word"><div class="btn on">打分</div><div class="author">'+author[ret[i]['author']]+'</div></div></li>';

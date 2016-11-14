@@ -76,7 +76,7 @@ layui.use(['form', 'layedit', 'laydate', 'upload', 'layer'], function(){
 				$('.slide p:first').addClass("on");
 				var id = $('.slide p:first').attr('data-id');
 				if(id != undefined){
-					sendData('getOne', 'id='+id, function(ret){
+					sendData('delOne', 'id='+id, function(ret){
 						setInput(ret[0], function(){form.render();});
 					});	
 				}
@@ -97,7 +97,7 @@ layui.use(['form', 'layedit', 'laydate', 'upload', 'layer'], function(){
 
 function setFormDefault(cb){
 	$('input[name=id]').val('');
-	$('input[name=way]').val('');   // 修改
+	$('input[name=way]').val(1);   // 新增
 	$('input[name=title]').val(''); // 标题   
 	$('input[name=mark]').val('');   // 分数  
 	$('#date').val('');        // 时间
